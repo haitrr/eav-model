@@ -1,12 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using Microsoft.CodeAnalysis.Emit;
 
 namespace Eav.Models
 {
     public class Entity : DatabaseObject
     {
-        public EntityType Type { get; set; }
-        public ICollection<EntityAttribute> Attributes { get; set; }
-        public ICollection<Relationship> Relationships { get; set; }
+        public Guid EntityTypeId { get; set; }
+        public ICollection<AttributeValue> Properties { get; set; }
         public bool IsRemoved { get; set; }
     }
 }

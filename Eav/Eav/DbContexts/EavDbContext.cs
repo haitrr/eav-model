@@ -7,7 +7,7 @@ namespace Eav.DbContexts
 {
     public class EavDbContext
     {
-        private readonly IMongoDatabase _database = null;
+        private readonly IMongoDatabase _database;
         public EavDbContext(IOptions<Settings> settings)
         {
             var client = new MongoClient(settings.Value.ConnectionString);
@@ -25,23 +25,28 @@ namespace Eav.DbContexts
             {
                 return "Entities";
             }
-            else if (type == typeof(EntityAttribute))
+
+            if (type == typeof(EntityAttribute))
             {
                 return "EntityAttributes";
             }
-            else if (type == typeof(EntityType))
+
+            if (type == typeof(EntityType))
             {
                 return "EntityTypes";
             }
-            else if (type == typeof(AttributeType))
+
+            if (type == typeof(AttributeType))
             {
                 return "AttributeTypes";
             }
-            else if (type == typeof(AttributeValue))
+
+            if (type == typeof(AttributeValue))
             {
-                return "AttributeValies";
+                return "AttributeValues";
             }
-            else if (type == typeof(Relationship))
+
+            if (type == typeof(Relationship))
             {
                 return "Relationships";
             }

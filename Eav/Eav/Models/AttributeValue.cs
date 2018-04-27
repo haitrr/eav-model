@@ -1,8 +1,11 @@
-﻿namespace Eav.Models
+﻿using System;
+
+namespace Eav.Models
 {
     public class AttributeValue : DatabaseObject
     {
-        public EntityAttribute Attribute { get; set; }
-        public dynamic Value { get; set; }
+        public Guid EntityAttributeId { get; set; }
+        public string Value { get; set; }
+        public string Name { get; set; }
     }
 }

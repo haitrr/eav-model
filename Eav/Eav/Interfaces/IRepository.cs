@@ -7,7 +7,7 @@ namespace Eav.Interfaces
 {
     public interface IRepository<T> where T : DatabaseObject
     {
-        void Add(T obj);
+        Task Add(T obj);
         Task<IEnumerable<T>> GetAll();
         Task<bool> Update(Guid id,T obj);
         Task<bool> Remove(Guid id);

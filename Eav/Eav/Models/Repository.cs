@@ -20,9 +20,9 @@ namespace Eav.Models
             _collection = _dbContext.GetCollection<T>();
         }
 
-        public void Add(T obj)
+        public Task Add(T obj)
         {
-            _collection.InsertOneAsync(obj);
+            return _collection.InsertOneAsync(obj);
         }
 
         public async Task<IEnumerable<T>> GetAll()
